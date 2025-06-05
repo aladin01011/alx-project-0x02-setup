@@ -1,15 +1,10 @@
-import React from 'react';
 import Card from '../components/common/card';
 
-const HomePage: React.FC = () => {
+export default function Home() {
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4">Welcome to the Home Page</h1>
-      <Card title="Card 1" content="This is the content of the first card." />
-      <Card title="Card 2" content="Here is some content for the second card." />
-      <Card title="Card 3" content="Third card's content goes here." />
+    <div className="p-4">
+      <Card title="Card One" content="This is the first card." />
+      <Card title="Card Two" content="This is the second card." />
     </div>
   );
-};
-
-export default HomePage;
+}

@@ -1,4 +1,5 @@
-import Card from '../components/common/card';
+import React from 'react';
+import Card from '../components/common/Card.tsx;
 
 export default function Home() {
   return (

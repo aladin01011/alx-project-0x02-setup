@@ -6,3 +6,9 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+module.exports = {
+  devIndicators: {
+    autoPrerender: false,
+  },
+  allowedDevOrigins: ['http://192.168.1.8:3000'],
+};

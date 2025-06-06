@@ -1,7 +1,12 @@
-export default function Home() {
-  return (
-    <div className="flex justify-center items-center h-screen">
-      <h1 className="text-4xl font-bold">Welcome to the Next.js Project Setup!</h1>
-    </div>
-  )
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
+export default function Index() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push('/home');
+  }, []);
+
+  return null;
 }

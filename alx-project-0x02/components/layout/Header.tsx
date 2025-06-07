@@ -11,6 +11,7 @@ const Header: React.FC = () => {
           <li><Link href="/">Home (Root)</Link></li>
           <li><Link href="/home">Home</Link></li>
           <li><Link href="/about">About</Link></li>
+          <li><Link href="/posts">Posts</Link></li>
         </ul>
       </nav>
     </header>

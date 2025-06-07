@@ -1,26 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PostCard from '@/components/common/PostCard';
 import { PostProps } from '@/interfaces';
 import Header from '@/components/layout/Header';
 
-export default function PostsPage() {
-  const [posts, setPosts] = useState<PostProps[]>([]);
+interface PostsPageProps {
+  posts: PostProps[];
+}
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=10');
-      const data = await res.json();
-      const formattedPosts = data.map((post: any) => ({
-        title: post.title,
-        content: post.body,
-        userId: post.userId,
-      }));
-      setPosts(formattedPosts);
-    };
-
-    fetchPosts();
-  }, []);
-
+export default function PostsPage({ posts }: PostsPageProps) {
   return (
     <>
       <Header />
@@ -34,3 +21,20 @@ export default function PostsPage() {
   );
 }
 
+// 👇 THIS is the required function for static generation
+export async function getStaticProps() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=10');
+  const data = await res.json();
+
+  const posts = data.map((post: any) => ({
+    title: post.title,
+    content: post.body,
+    userId: post.userId,
+  }));
+
+  return {
+    props: {
+      posts,
+    },
+  };
+}
